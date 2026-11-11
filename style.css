@@ -1,0 +1,68 @@
+:root {
+  --ink: #12222b;
+  --paper: #f5f1e8;
+  --card: #ffffff;
+  --accent: #e4572e;
+  --sea: #0f4c5c;
+  --muted: #5d6b72;
+  --line: #e2dccd;
+  --good: #1f7a4d;
+  --bad: #a4551b;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; font: 17px/1.55 var(--font); color: var(--ink); background: var(--paper); }
+h1, h2, h3 { line-height: 1.12; letter-spacing: -.02em; margin: 0 0 .4em; }
+h1 { font-size: clamp(2.4rem, 8vw, 4.2rem); }
+h2 { font-size: clamp(1.7rem, 5vw, 2.5rem); }
+h3 { font-size: 1.35rem; margin: 0; }
+p { margin: 0 0 1em; }
+button { font: inherit; color: inherit; cursor: pointer; }
+
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 5px; background: var(--line); z-index: 2; }
+#bar { height: 100%; width: 0; background: var(--accent); transition: width .25s; }
+.top { padding: 22px 24px 0; max-width: 720px; margin: 0 auto; }
+.top a { font-weight: 800; color: var(--sea); text-decoration: none; letter-spacing: -.01em; }
+main { max-width: 720px; margin: 0 auto; padding: 8vh 24px 64px; }
+
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .76rem; font-weight: 700; color: var(--sea); margin-bottom: 14px; }
+.lede { font-size: 1.2rem; color: var(--muted); max-width: 46ch; margin-bottom: 28px; }
+.sub { color: var(--muted); margin-top: -4px; }
+.fine { font-size: .85rem; color: var(--muted); margin-top: 18px; }
+
+.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; border: 0; padding: 16px 28px; border-radius: 999px; transition: transform .15s, box-shadow .15s; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, .18); }
+.btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); padding: 14px 26px; }
+.link { background: none; border: 0; padding: 12px 0; margin-top: 12px; color: var(--muted); text-decoration: underline; }
+
+.options { display: grid; gap: 12px; margin-top: 24px; }
+.options.grid { grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); }
+.options.grid .option:first-child { grid-column: 1 / -1; }
+.option { display: flex; flex-direction: column; gap: 2px; text-align: left; background: var(--card); border: 2px solid var(--line); border-radius: 14px; padding: 16px 18px; transition: border-color .12s, transform .12s; }
+.option:hover, .option:focus-visible { border-color: var(--sea); transform: translateY(-1px); outline: none; }
+.option.chosen { border-color: var(--accent); }
+.option .label { font-weight: 700; }
+.option .hint { font-size: .9rem; color: var(--muted); }
+.options.grid .option { text-align: center; padding: 14px 8px; }
+
+.card { background: var(--card); border: 2px solid var(--line); border-radius: 18px; padding: 22px; margin-top: 16px; }
+.card.top { border-color: var(--sea); box-shadow: 0 10px 30px rgba(15, 76, 92, .12); }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.country { color: var(--muted); margin: 2px 0 0; font-size: .95rem; }
+.match { font-size: 1.6rem; font-weight: 800; color: var(--sea); white-space: nowrap; }
+.card.top .match { color: var(--accent); }
+.blurb { margin: 14px 0 6px; }
+.when { font-weight: 700; margin: 0 0 6px; }
+.why { list-style: none; margin: 10px 0 0; padding: 0; font-size: .95rem; }
+.why li { padding: 4px 0 4px 26px; position: relative; }
+.why .good::before { content: "\2713"; position: absolute; left: 2px; color: var(--good); font-weight: 800; }
+.why .bad { color: var(--bad); }
+.why .bad::before { content: "!"; position: absolute; left: 7px; font-weight: 800; }
+.trip { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: .95rem; }
+.trip p { margin: 0 0 4px; }
+.trip a { display: inline-block; margin-top: 6px; color: var(--sea); font-weight: 700; }
+.shared { margin: 0 0 32px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+@media (prefers-reduced-motion: reduce) { .btn, .option, #bar { transition: none; } }
